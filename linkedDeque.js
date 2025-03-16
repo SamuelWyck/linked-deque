@@ -223,6 +223,14 @@ Deque.prototype.removeAt = function(index) {
 };
 
 
+Deque.prototype.clear = function() {
+    this.head.val = null;
+    this.head.next = null;
+    this.tail = this.head;
+    this._length = 0;
+};
+
+
 Deque.prototype.toArray = function() {
     if (this._length === 0) {
         return [];
@@ -267,3 +275,5 @@ export default Deque;
 const deque = new Deque([1, 2, 3])
 
 console.log(deque.toString())
+deque.clear()
+console.log(deque)
