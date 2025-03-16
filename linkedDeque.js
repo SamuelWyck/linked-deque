@@ -73,15 +73,18 @@ Deque.prototype.at = function(index) {
         return null;
     }
 
-    let current = this.head;
-    let currentIndex = 0;
+    const pastMid = index > Math.floor(this._length/2);
+
+    let current = (pastMid) ? this.tail : this.head;
+    let currentIndex = (pastMid) ? this._length - 1 : 0;
+    const indexChange = (pastMid) ? -1 : 1;
     while (current !== null) {
         if (currentIndex === index) {
             return current.val;
         }
 
-        current = current.next;
-        currentIndex += 1;
+        current = (pastMid) ? current.prev : current.next;
+        currentIndex += indexChange;
     }
 };
 
@@ -197,7 +200,7 @@ Deque.prototype.reverse = function() {
         current.prev = next;
         current = next;
     }
-}
+};
 
 
 Deque.prototype.clear = function() {
@@ -249,10 +252,7 @@ Deque.prototype.toString = function() {
 
 export default Deque;
 
-const deque = new Deque([1, 2, 3])
+const deque = new Deque([1, 2, 3, 4, 5, 6, 7, 8, 9])
 
 console.log(deque.toString())
-console.log(deque.getTail())
-deque.reverse()
-console.log(deque.toString())
-console.log(deque.getTail())
+console.log(deque.at(3))
