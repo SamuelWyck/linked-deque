@@ -136,13 +136,17 @@ Deque.prototype.insertAt = function(value, index) {
         return true;
     }
 
+    const pastMid = index > Math.floor(this._length/2);
+
     const newNode = new Node(value);
-    let current = this.head;
-    let currentIndex = 0;
+    let current = (pastMid) ? this.tail : this.head;
+    let currentIndex = (pastMid) ? this._length - 1 : 0;
+    const indexChange = (pastMid) ? -1 : 1;
+
     while (current !== null) {
         if (currentIndex !== index) {
-            current = current.next;
-            currentIndex += 1;
+            current = (pastMid) ? current.prev : current.next;
+            currentIndex += indexChange;
             continue;
         }
 
@@ -255,4 +259,5 @@ export default Deque;
 const deque = new Deque([1, 2, 3, 4, 5, 6, 7, 8, 9])
 
 console.log(deque.toString())
-console.log(deque.at(3))
+console.log(deque.insertAt(0, 7))
+console.log(deque.toString())
