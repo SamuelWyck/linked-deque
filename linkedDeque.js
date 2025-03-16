@@ -63,6 +63,11 @@ Deque.prototype.getHead = function() {
 };
 
 
+Deque.prototype.getTail = function() {
+    return this.tail.val;
+};
+
+
 Deque.prototype.at = function(index) {
     if (index >= this._length || index < 0) {
         return null;
@@ -78,11 +83,6 @@ Deque.prototype.at = function(index) {
         current = current.next;
         currentIndex += 1;
     }
-};
-
-
-Deque.prototype.getTail = function() {
-    return this.tail.val;
 };
 
 
@@ -223,6 +223,19 @@ Deque.prototype.removeAt = function(index) {
 };
 
 
+Deque.prototype.forEach = function(callback) {
+    if (this._length === 0) {
+        return;
+    }
+
+    let current = this.head;
+    while (current !== null) {
+        callback(current.val);
+        current = current.next;
+    }
+};
+
+
 Deque.prototype.toString = function() {
     if (this._length === 0 ) {
         return "null";
@@ -248,6 +261,7 @@ Deque.prototype.toString = function() {
 
 export default Deque;
 
-const deque = new Deque()
+const deque = new Deque([1, 2, 3])
 
-console.log(deque.toString())
+console.log(deque)
+console.log(deque.length)
