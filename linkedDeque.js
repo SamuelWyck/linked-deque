@@ -15,7 +15,7 @@ function Deque(array) {
 
     if (typeof array !== "undefined" && Array.isArray(array)) {
         for (let element of array) {
-            this.append(element);
+            this.push(element);
         }
     }
 };
@@ -28,7 +28,7 @@ Object.defineProperty(Deque.prototype, "length", {
 });
 
 
-Deque.prototype.append = function(value) {
+Deque.prototype.push = function(value) {
     if (this._length === 0) {
         this.tail.val = value;
         this._length += 1;
@@ -43,7 +43,7 @@ Deque.prototype.append = function(value) {
 };
 
 
-Deque.prototype.prepend = function(value) {
+Deque.prototype.pushLeft = function(value) {
     if (this._length === 0 ) {
         this.head.val = value;
         this._length += 1;
