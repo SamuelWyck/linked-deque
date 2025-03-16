@@ -172,12 +172,16 @@ Deque.prototype.removeAt = function(index) {
         return this.pop();
     }
 
-    let current = this.head;
-    let currentIndex = 0;
+    const pastMid = index > Math.floor(this._length/2);
+
+    let current = (pastMid) ? this.tail : this.head;
+    let currentIndex = (pastMid) ? this._length - 1 : 0;
+    const indexChange = (pastMid) ? -1 : 1;
+
     while (current !== null) {
         if (currentIndex !== index) {
-            currentIndex += 1;
-            current = current.next;
+            currentIndex += indexChange;
+            current = (pastMid) ? current.prev : current.next;
             continue;
         }
 
@@ -259,5 +263,5 @@ export default Deque;
 const deque = new Deque([1, 2, 3, 4, 5, 6, 7, 8, 9])
 
 console.log(deque.toString())
-console.log(deque.insertAt(0, 7))
+console.log(deque.removeAt(3))
 console.log(deque.toString())
