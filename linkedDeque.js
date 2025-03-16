@@ -8,17 +8,24 @@ function Node(value=null) {
 
 
 
-function LinkedList() {
+function Deque() {
     this.head = new Node();
     this.tail = this.head;
-    this.length = 0;
+    this._length = 0;
 };
 
 
-LinkedList.prototype.append = function(value) {
-    if (this.length === 0) {
+Object.defineProperty(Deque.prototype, "length", {
+    get: function() {
+        return this._length;
+    }
+});
+
+
+Deque.prototype.append = function(value) {
+    if (this._length === 0) {
         this.tail.val = value;
-        this.length += 1;
+        this._length += 1;
         return;
     }
 
@@ -26,14 +33,14 @@ LinkedList.prototype.append = function(value) {
     newNode.prev = this.tail;
     this.tail.next = newNode;
     this.tail = newNode;
-    this.length += 1;
+    this._length += 1;
 };
 
 
-LinkedList.prototype.prepend = function(value) {
-    if (this.length === 0 ) {
+Deque.prototype.prepend = function(value) {
+    if (this._length === 0 ) {
         this.head.val = value;
-        this.length += 1;
+        this._length += 1;
         return;
     }
 
@@ -41,22 +48,17 @@ LinkedList.prototype.prepend = function(value) {
     newNode.next = this.head;
     this.head.prev = newNode;
     this.head = newNode;
-    this.length += 1;
+    this._length += 1;
 };
 
 
-LinkedList.prototype.size = function() {
-    return this.length;
+Deque.prototype.getHead = function() {
+    return this.head.val;
 };
 
 
-LinkedList.prototype.getHead = function() {
-    return this.head;
-};
-
-
-LinkedList.prototype.at = function(index) {
-    if (index >= this.length || index < 0) {
+Deque.prototype.at = function(index) {
+    if (index >= this._length || index < 0) {
         return null;
     }
 
@@ -64,7 +66,7 @@ LinkedList.prototype.at = function(index) {
     let currentIndex = 0;
     while (current !== null) {
         if (currentIndex === index) {
-            return current;
+            return current.val;
         }
 
         current = current.next;
@@ -73,51 +75,51 @@ LinkedList.prototype.at = function(index) {
 };
 
 
-LinkedList.prototype.getTail = function() {
-    return this.tail;
+Deque.prototype.getTail = function() {
+    return this.tail.val;
 };
 
 
-LinkedList.prototype.pop = function() {
-    if (this.length === 0) {
+Deque.prototype.pop = function() {
+    if (this._length === 0) {
         return null;
     }
-    if (this.length === 1) {
+    if (this._length === 1) {
         const lastElement = this.head.val;
         this.head.val = null;
-        this.length -= 1;
+        this._length -= 1;
         return lastElement;
     }
 
     const lastElement = this.tail;
     this.tail = this.tail.prev;
     this.tail.next = null;
-    this.length -= 1;
+    this._length -= 1;
     return lastElement.val;
 };
 
 
-LinkedList.prototype.popleft = function() {
-    if (this.length === 0) {
+Deque.prototype.popleft = function() {
+    if (this._length === 0) {
         return null;
     }
-    if (this.length === 1) {
+    if (this._length === 1) {
         const firstElement = this.head.val;
         this.head.val = null;
-        this.length -= 1;
+        this._length -= 1;
         return firstElement;
     }
 
     const firstElement = this.head;
     this.head = this.head.next;
     this.head.prev = null;
-    this.length -= 1;
+    this._length -= 1;
     return firstElement.val;
 };
 
 
-LinkedList.prototype.contains = function(value) {
-    if (this.length === 0) {
+Deque.prototype.contains = function(value) {
+    if (this._length === 0) {
         return false;
     }
 
@@ -134,8 +136,8 @@ LinkedList.prototype.contains = function(value) {
 };
 
 
-LinkedList.prototype.find = function(value) {
-    if (this.length === 0) {
+Deque.prototype.find = function(value) {
+    if (this._length === 0) {
         return null;
     }
 
@@ -155,8 +157,8 @@ LinkedList.prototype.find = function(value) {
 };
 
 
-LinkedList.prototype.insertAt = function(value, index) {
-    if (index < 0 || index >= this.length) {
+Deque.prototype.insertAt = function(value, index) {
+    if (index < 0 || index >= this._length) {
         return false;
     }
     if (index === 0) {
@@ -179,20 +181,20 @@ LinkedList.prototype.insertAt = function(value, index) {
         newNode.prev = prev;
         newNode.next = current;
         current.prev = newNode;
-        this.length += 1;
+        this._length += 1;
         return true;
     }
 };
 
 
-LinkedList.prototype.removeAt = function(index) {
-    if (index < 0 || index >= this.length) {
+Deque.prototype.removeAt = function(index) {
+    if (index < 0 || index >= this._length) {
         return null;
     }
     if (index === 0) {
         return this.popleft();
     }
-    if (index === this.length - 1) {
+    if (index === this._length - 1) {
         return this.pop();
     }
 
@@ -209,14 +211,14 @@ LinkedList.prototype.removeAt = function(index) {
         const next = current.next;
         prev.next = next;
         next.prev = prev;
-        this.length -= 1;
+        this._length -= 1;
         return current.val;
     }
 };
 
 
-LinkedList.prototype.toString = function() {
-    if (this.length === 0 ) {
+Deque.prototype.toString = function() {
+    if (this._length === 0 ) {
         return "null";
     }
     const stringArray = [];
@@ -238,34 +240,7 @@ LinkedList.prototype.toString = function() {
 };
 
 
-export default LinkedList;
+export default Deque;
 
-
-
-const list = new LinkedList();
-// list.prepend(2);
-// console.log(list.toString());
-// list.prepend(3);
-// console.log(list.toString());
-// console.log(list.size())
-// list.insertAt(4, 1);
-// console.log(list.toString());
-// list.insertAt(6, 2);
-// console.log(list.toString());
-// list.removeAt(2);
-// console.log(list.toString());
-
-// let current = list.getHead();
-
-// while (current !== null) {
-//     console.log(current);
-//     current = current.next;
-// }
-
-list.append("dog");
-list.append("cat");
-list.append("parrot");
-list.append("hamster");
-list.append("snake");
-list.append("turtle");
-console.log(list.toString());
+const deque = new Deque()
+deque.at(1)
