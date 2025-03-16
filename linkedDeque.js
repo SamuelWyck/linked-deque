@@ -132,7 +132,7 @@ Deque.prototype.insertAt = function(value, index) {
         return false;
     }
     if (index === 0) {
-        this.prepend(value);
+        this.pushLeft(value);
         return true;
     }
 
