@@ -8,10 +8,16 @@ function Node(value=null) {
 
 
 
-function Deque() {
+function Deque(array) {
     this.head = new Node();
     this.tail = this.head;
     this._length = 0;
+
+    if (typeof array !== "undefined" && Array.isArray(array)) {
+        for (let element of array) {
+            this.append(element);
+        }
+    }
 };
 
 
@@ -243,4 +249,5 @@ Deque.prototype.toString = function() {
 export default Deque;
 
 const deque = new Deque()
-deque.at(1)
+
+console.log(deque.toString())
