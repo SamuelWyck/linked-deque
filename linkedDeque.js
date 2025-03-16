@@ -257,6 +257,8 @@ Deque.prototype.toString = function() {
     return stringArray.join("");
 };
 
+//add rotate and copy methods
+
 
 export default Deque;
 
