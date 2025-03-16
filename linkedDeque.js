@@ -124,45 +124,6 @@ Deque.prototype.popleft = function() {
 };
 
 
-// Deque.prototype.contains = function(value) {
-//     if (this._length === 0) {
-//         return false;
-//     }
-
-//     let current = this.head;
-//     while (current !== null) {
-//         const currentValue = JSON.stringify(current.val);
-//         if (currentValue === value) {
-//             return true;
-//         }
-//         current = current.next;
-//     }
-
-//     return false;
-// };
-
-
-// Deque.prototype.find = function(value) {
-//     if (this._length === 0) {
-//         return null;
-//     }
-
-//     let index = 0;
-//     let current = this.head;
-//     while (current !== null) {
-//         const currentValue = current.val;
-//         if (currentValue === value) {
-//             return index;
-//         }
-
-//         index += 1;
-//         current = current.next;
-//     }
-
-//     return null;
-// };
-
-
 Deque.prototype.insertAt = function(value, index) {
     if (index < 0 || index >= this._length) {
         return false;
@@ -223,6 +184,22 @@ Deque.prototype.removeAt = function(index) {
 };
 
 
+Deque.prototype.reverse = function() {
+    const head = this.head;
+    this.head = this.tail;
+    this.tail = head;
+
+    let current = this.tail;
+    while (current !== null) {
+        const prev = current.prev;
+        const next = current.next;
+        current.next = prev;
+        current.prev = next;
+        current = next;
+    }
+}
+
+
 Deque.prototype.clear = function() {
     this.head.val = null;
     this.head.next = null;
@@ -273,9 +250,9 @@ Deque.prototype.toString = function() {
 export default Deque;
 
 const deque = new Deque([1, 2, 3])
-deque.append([1,2])
-deque.append([1,3])
 
 console.log(deque.toString())
-deque.remove([1,3])
+console.log(deque.getTail())
+deque.reverse()
 console.log(deque.toString())
+console.log(deque.getTail())
