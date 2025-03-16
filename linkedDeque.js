@@ -223,16 +223,19 @@ Deque.prototype.removeAt = function(index) {
 };
 
 
-Deque.prototype.forEach = function(callback) {
+Deque.prototype.toArray = function() {
     if (this._length === 0) {
-        return;
+        return [];
     }
+    const array = [];
 
     let current = this.head;
     while (current !== null) {
-        callback(current.val);
+        array.push(current.val);
         current = current.next;
     }
+    
+    return array;
 };
 
 
@@ -263,5 +266,4 @@ export default Deque;
 
 const deque = new Deque([1, 2, 3])
 
-console.log(deque)
-console.log(deque.length)
+console.log(deque.toString())
