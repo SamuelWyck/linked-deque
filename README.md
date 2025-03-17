@@ -84,3 +84,35 @@ nothing will happen. **O(n/2)**
 
 ### *toString( )*
 - Get a String of all the elements in the deque for the purpose of printing. **O(n)**
+
+
+## Usage
+
+```javascript
+import deque from "linked-deque"; 
+
+const deque = new Deque([1, 2, 3]); // ( 1 ) -> ( 2 ) -> ( 3 ) -> null
+
+deque.popLeft(); // ( 2 ) -> ( 3 ) -> null
+
+deque.pushLeft(5); // ( 5 ) -> ( 2 ) -> ( 3 ) -> null
+
+deque.rotate(); // ( 3 ) -> ( 5 ) -> ( 2 ) -> null
+
+deque.insertAt("foo", 1); // ( 3 ) -> ( "foo" ) -> ( 5 ) -> ( 2 ) -> null
+
+deque.removeAt(2); // ( 3 ) -> ( "foo" ) -> ( 2 ) -> null
+
+deque.reverse(); // ( 2 ) -> ( "foo" ) -> ( 3 ) -> null
+
+deque.push(7); // ( 2 ) -> ( "foo" ) -> ( 3 ) -> ( 7 ) -> null
+
+
+// you can use for ... of loops 
+for (let element of deque) {
+    // do something
+}
+
+
+deque.clear(); // null
+```
