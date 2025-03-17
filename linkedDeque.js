@@ -253,6 +253,22 @@ Deque.prototype.clear = function() {
 };
 
 
+Deque.prototype[Symbol.iterator] = function() {
+    let current = this.head;
+    return {
+        next: function() {
+            if (current === null || this._length === 0) {
+                return {value: undefined, done: true};
+            } else {
+                const result = current.val;
+                current = current.next;
+                return {value: result, done: false};
+            }
+        },
+    };
+};
+
+
 Deque.prototype.toArray = function() {
     if (this._length === 0) {
         return [];
@@ -297,7 +313,17 @@ export default Deque;
 const deque = new Deque([1, 2, 3, 4, 5, 6, 7, 8, 9])
 
 console.log(deque.toString())
-const deque2 = deque.copy()
-console.log(deque2.toString())
-deque2.pop()
-console.log(deque2.toString())
+
+for (let value of deque) {
+    value *= 2;
+}
+
+console.log(deque.toString())
+
+const array = [1, 2, 3]
+
+for (let num of array) {
+    num *= 2
+}
+
+console.log(array)
