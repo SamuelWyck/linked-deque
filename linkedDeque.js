@@ -117,6 +117,10 @@ Deque.prototype.at = function(index) {
 };
 
 
+/**
+ * Remove and return the last element in the deque.
+ * @return {*} The element at the back (right side) of the deque. 
+ */
 Deque.prototype.pop = function() {
     if (this._length === 0) {
         return null;
@@ -345,4 +349,4 @@ export default Deque;
 
 
 const deque = new Deque([1, 2, 3, 4, 5])
-deque.at()
+deque.pop()
