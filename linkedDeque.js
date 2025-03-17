@@ -7,14 +7,17 @@ function Node(value=null) {
 };
 
 
-
-function Deque(array) {
+/**
+ * 
+ * @param {iterator} iterable 
+ */
+function Deque(iterable) {
     this.head = new Node();
     this.tail = this.head;
     this._length = 0;
 
-    if (typeof array !== "undefined" && Array.isArray(array)) {
-        for (let element of array) {
+    if (Symbol.iterator in Object(iterable)) {
+        for (let element of iterable) {
             this.push(element);
         }
     }
@@ -315,3 +318,7 @@ Deque.prototype.toString = function() {
 
 export default Deque;
 
+
+const deque = new Deque([1, 2, 3, 4, 5])
+
+console.log(deque.toString())
