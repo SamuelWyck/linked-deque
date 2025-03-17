@@ -212,7 +212,7 @@ Deque.prototype.insertAt = function(value, index) {
  */
 Deque.prototype.removeAt = function(index) {
     if (index < 0 || index >= this._length) {
-        return null;
+        throw new RangeError("Index is out of bounds.");
     }
     if (index === 0) {
         return this.popleft();
