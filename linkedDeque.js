@@ -73,6 +73,10 @@ Deque.prototype.pushLeft = function(value) {
 };
 
 
+/**
+ * Get the first element in the deque (the front element) without removing it.
+ * @return {*} The first element in the deque.
+ */
 Deque.prototype.getHead = function() {
     return this.head.val;
 };
@@ -332,4 +336,4 @@ export default Deque;
 
 
 const deque = new Deque([1, 2, 3, 4, 5])
-deque.pushLeft()
+deque.getHead()
