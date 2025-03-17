@@ -82,6 +82,10 @@ Deque.prototype.getHead = function() {
 };
 
 
+/**
+ * Get the last element in the deque (the back element) without removing it.
+ * @return {*} The last element in the deque.
+ */
 Deque.prototype.getTail = function() {
     return this.tail.val;
 };
@@ -336,4 +340,4 @@ export default Deque;
 
 
 const deque = new Deque([1, 2, 3, 4, 5])
-deque.getHead()
+deque.getTail()
