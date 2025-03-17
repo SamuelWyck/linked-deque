@@ -91,6 +91,11 @@ Deque.prototype.getTail = function() {
 };
 
 
+/**
+ * Get an element from the deque using an order-based index. Throws a RangeError with an invalid index.
+ * @param {Integer} index - A zero-based index.
+ * @return {*} The nth element in the deque.
+ */
 Deque.prototype.at = function(index) {
     if (index >= this._length || index < 0) {
         return null;
@@ -340,4 +345,4 @@ export default Deque;
 
 
 const deque = new Deque([1, 2, 3, 4, 5])
-deque.getTail()
+deque.at()
