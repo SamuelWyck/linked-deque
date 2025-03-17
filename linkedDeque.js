@@ -244,6 +244,10 @@ Deque.prototype.removeAt = function(index) {
 };
 
 
+/**
+ * Reverse the order of elements in the deque in-place.
+ * @return {undefined}
+ */
 Deque.prototype.reverse = function() {
     const head = this.head;
     this.head = this.tail;
@@ -366,4 +370,4 @@ export default Deque;
 
 
 const deque = new Deque([1, 2, 3, 4, 5])
-deque.removeAt()
+deque.reverse()
