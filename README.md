@@ -9,6 +9,9 @@ The Symbol.iterator method is defined to allow for the use of a for ... of loop 
 
 All methods will have the time complexity listed in their documentation.
 
+## Install
+    npm install --save linked-deque
+
 
 ### *Deque( iterable )*
 - Constructor for the deque with an optional param of any object that implements Symbol.iterator.  
