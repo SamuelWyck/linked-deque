@@ -307,6 +307,10 @@ Deque.prototype.copy = function() {
 };
 
 
+/**
+ * Remove all elements from the deque.
+ * @return {undefined}
+ */
 Deque.prototype.clear = function() {
     this.head.val = null;
     this.head.next = null;
@@ -379,4 +383,4 @@ export default Deque;
 
 
 const deque = new Deque([1, 2, 3, 4, 5])
-deque.copy()
+deque.clear()
