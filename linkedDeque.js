@@ -319,6 +319,45 @@ Deque.prototype.clear = function() {
 };
 
 
+Deque.prototype.toArray = function() {
+    if (this._length === 0) {
+        return [];
+    }
+    const array = [];
+    
+    let current = this.head;
+    while (current !== null) {
+        array.push(current.val);
+        current = current.next;
+    }
+    
+    return array;
+};
+
+
+Deque.prototype.toString = function() {
+    if (this._length === 0 ) {
+        return "null";
+    }
+    const stringArray = [];
+    let current = this.head;
+    
+    const linkSymbol = " -> ";
+    
+    while (current !== null) {
+        const value = current.val;
+        const stringSegment = `( ${value} )`;
+        stringArray.push(stringSegment);
+        stringArray.push(linkSymbol);
+        current = current.next;
+    };
+    
+    stringArray.push("null");
+    
+    return stringArray.join("");
+};
+
+
 Deque.prototype[Symbol.iterator] = function() {
     let current = this.head;
     return {
@@ -337,45 +376,6 @@ Deque.prototype[Symbol.iterator] = function() {
 
 Deque.prototype[Symbol.toStringTag] = function() {
     return "Deque";
-};
-
-
-Deque.prototype.toArray = function() {
-    if (this._length === 0) {
-        return [];
-    }
-    const array = [];
-
-    let current = this.head;
-    while (current !== null) {
-        array.push(current.val);
-        current = current.next;
-    }
-    
-    return array;
-};
-
-
-Deque.prototype.toString = function() {
-    if (this._length === 0 ) {
-        return "null";
-    }
-    const stringArray = [];
-    let current = this.head;
-
-    const linkSymbol = " -> ";
-
-    while (current !== null) {
-        const value = current.val;
-        const stringSegment = `( ${value} )`;
-        stringArray.push(stringSegment);
-        stringArray.push(linkSymbol);
-        current = current.next;
-    };
-
-    stringArray.push("null");
-
-    return stringArray.join("");
 };
 
 
