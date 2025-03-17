@@ -266,20 +266,20 @@ Deque.prototype.reverse = function() {
 
 /**
  * Rotate the deque to the right by the given number of steps. If the number is negative rotate to the left.
- * @param {integer} [rotations=1] - The number of steps to rotate the deque. 
+ * @param {integer} [steps=1] - The number of steps to rotate the deque. 
  * @return {undefined}
  */
-Deque.prototype.rotate = function(rotations=1) {
-    if (rotations === 0) {
+Deque.prototype.rotate = function(steps=1) {
+    if (steps === 0) {
         return;
     }
     
-    if (rotations > 0) {
-        for (let i = 0; i < rotations; i += 1) {
+    if (steps > 0) {
+        for (let i = 0; i < steps; i += 1) {
             this.pushLeft(this.pop());
         }
     } else {
-        for (let i = 0; i < Math.abs(rotations); i += 1) {
+        for (let i = 0; i < Math.abs(steps); i += 1) {
             this.push(this.popleft());
         }
     }
