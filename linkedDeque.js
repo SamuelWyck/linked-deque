@@ -388,7 +388,3 @@ Deque.prototype[Symbol.toStringTag] = function() {
 
 
 export default Deque;
-
-
-const deque = new Deque([1, 2, 3, 4, 5])
-deque.toString()
