@@ -98,7 +98,7 @@ Deque.prototype.getTail = function() {
  */
 Deque.prototype.at = function(index) {
     if (index >= this._length || index < 0) {
-        return null;
+        throw new RangeError("Index is out of bounds.");
     }
 
     const pastMid = index > Math.floor(this._length/2);
@@ -353,4 +353,4 @@ export default Deque;
 
 
 const deque = new Deque([1, 2, 3, 4, 5])
-deque.popleft()
+deque.at(6)
