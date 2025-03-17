@@ -319,6 +319,10 @@ Deque.prototype.clear = function() {
 };
 
 
+/**
+ * Get an Array of all the elements in the deque.
+ * @return {Array} An Array object containing all elements from the deque. 
+ */
 Deque.prototype.toArray = function() {
     if (this._length === 0) {
         return [];
@@ -383,4 +387,4 @@ export default Deque;
 
 
 const deque = new Deque([1, 2, 3, 4, 5])
-deque.clear()
+deque.toArray()
