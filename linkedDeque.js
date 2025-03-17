@@ -286,6 +286,10 @@ Deque.prototype.rotate = function(rotations=1) {
 };
 
 
+/**
+ * Create a shallow copy of the deque.
+ * @return {Deque} A shallow copy of the deque.
+ */
 Deque.prototype.copy = function() {
     if (this._length === 0) {
         return new Deque();
@@ -375,4 +379,4 @@ export default Deque;
 
 
 const deque = new Deque([1, 2, 3, 4, 5])
-deque.rotate()
+deque.copy()
