@@ -228,6 +228,23 @@ Deque.prototype.rotate = function(rotations=1) {
 };
 
 
+Deque.prototype.copy = function() {
+    if (this._length === 0) {
+        return new Deque();
+    }
+
+    const newDeque = new Deque();
+    let current = this.head;
+
+    while (current !== null) {
+        newDeque.push(current.val);
+        current = current.next;
+    }
+
+    return newDeque;
+};
+
+
 Deque.prototype.clear = function() {
     this.head.val = null;
     this.head.next = null;
@@ -280,7 +297,7 @@ export default Deque;
 const deque = new Deque([1, 2, 3, 4, 5, 6, 7, 8, 9])
 
 console.log(deque.toString())
-deque.rotate(-3)
-console.log(deque.toString())
-deque.rotate(3)
-console.log(deque.toString())
+const deque2 = deque.copy()
+console.log(deque2.toString())
+deque2.pop()
+console.log(deque2.toString())
