@@ -63,7 +63,11 @@ Throws a RangeError if the index is invalid. **O(n/2)**
 
 ### *rotate( steps=1 )*
 - Rotate the deque to the right by the given number of steps. (One by default.)   
-If the number is negative rotate to the left. **O(s)** (Where s == the number of steps given.)
+If the number is negative rotate to the left.  
+Based on the input, the method will always calculate the optimal direction  
+and number of steps to rotate the deque.  
+For example: if the given number of steps equals the length of the deque,  
+nothing will happen. **O(n/2)**
 
 
 ### *copy( )*
