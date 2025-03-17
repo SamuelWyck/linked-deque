@@ -10,6 +10,7 @@ function Node(value=null) {
 
 /**
  * A double-ended queue built off of a doubly linked list.
+ * @alias Deque
  * @param {iterator} [iterable] - An object that implements Symbol.iterator
  * @return {Deque}
  */
