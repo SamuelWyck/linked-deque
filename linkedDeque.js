@@ -164,14 +164,14 @@ Deque.prototype.popleft = function() {
 
 
 /**
- * 
+ * Add an element to the deque at the specified index. Throws a RangeError with an invalid index.
  * @param {*} value - The element to be added to the deque. 
- * @param {integer} index 
- * @returns 
+ * @param {integer} index - The zero-based index at which to place the element.
+ * @return {Boolean} A boolean indicating the success or failure of the method.
  */
 Deque.prototype.insertAt = function(value, index) {
     if (index < 0 || index >= this._length) {
-        return false;
+        throw new RangeError("Index is out of bounds.");
     }
     if (index === 0) {
         this.pushLeft(value);
@@ -200,6 +200,8 @@ Deque.prototype.insertAt = function(value, index) {
         this._length += 1;
         return true;
     }
+
+    return false;
 };
 
 
@@ -359,4 +361,4 @@ export default Deque;
 
 
 const deque = new Deque([1, 2, 3, 4, 5])
-deque.at()
+deque.insertAt()
