@@ -8,8 +8,9 @@ function Node(value=null) {
 
 
 /**
- * 
- * @param {iterator} iterable 
+ * A double-ended queue built off of a doubly linked list.
+ * @param {iterator} iterable - An object that implements Symbol.iterator
+ * @return {Deque}
  */
 function Deque(iterable) {
     this.head = new Node();
@@ -31,6 +32,11 @@ Object.defineProperty(Deque.prototype, "length", {
 });
 
 
+/**
+ * Add a value to the back (right side) of the deque.
+ * @param {*} value - The value to be added to the deque.
+ * @return {undefined} 
+ */
 Deque.prototype.push = function(value) {
     if (this._length === 0) {
         this.tail.val = value;
@@ -320,3 +326,4 @@ export default Deque;
 
 
 const deque = new Deque([1, 2, 3, 4, 5])
+deque.push()
