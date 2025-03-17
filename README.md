@@ -10,7 +10,7 @@ The Symbol.iterator method is defined to allow for the use of a for ... of loop 
 All methods will have the time complexity listed in their documentation.
 
 
-### Constructor *Deque( iterable )*
+### *Deque( iterable )*
 - Constructor for the deque with an optional param of any object that implements Symbol.iterator.  
 The deque will be initialized with all the elements of the iterable. (if one is given) **O(n)**
 
