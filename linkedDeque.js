@@ -166,7 +166,7 @@ Deque.prototype.popleft = function() {
 /**
  * Add an element to the deque at the specified index. Throws a RangeError with an invalid index.
  * @param {*} value - The element to be added to the deque. 
- * @param {integer} index - The zero-based index at which to place the element.
+ * @param {integer} index - A zero-based index at which to place the element.
  * @return {Boolean} A boolean indicating the success or failure of the method.
  */
 Deque.prototype.insertAt = function(value, index) {
@@ -205,6 +205,11 @@ Deque.prototype.insertAt = function(value, index) {
 };
 
 
+/**
+ * Remove and return the element at the specified index in the deque. Throws a RangeError if the index is invalid.
+ * @param {integer} index - A zero-based index. 
+ * @return {*} The element at the specified index.
+ */
 Deque.prototype.removeAt = function(index) {
     if (index < 0 || index >= this._length) {
         return null;
@@ -361,4 +366,4 @@ export default Deque;
 
 
 const deque = new Deque([1, 2, 3, 4, 5])
-deque.insertAt()
+deque.removeAt()
