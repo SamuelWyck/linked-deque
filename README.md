@@ -15,6 +15,9 @@ All methods will have the time complexity listed in their documentation.
 The deque will be initialized with all the elements of the iterable. (if one is given) **O(n)**
 
 
+## Methods
+
+
 ### *push( value )* 
 - Add an element to the back (right side) of the deque. **O(1)**
 
