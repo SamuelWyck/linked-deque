@@ -211,6 +211,23 @@ Deque.prototype.reverse = function() {
 };
 
 
+Deque.prototype.rotate = function(rotations=1) {
+    if (rotations === 0) {
+        return;
+    }
+    
+    if (rotations > 0) {
+        for (let i = 0; i < rotations; i += 1) {
+            this.pushLeft(this.pop());
+        }
+    } else {
+        for (let i = 0; i < Math.abs(rotations); i += 1) {
+            this.push(this.popleft());
+        }
+    }
+};
+
+
 Deque.prototype.clear = function() {
     this.head.val = null;
     this.head.next = null;
@@ -257,13 +274,13 @@ Deque.prototype.toString = function() {
     return stringArray.join("");
 };
 
-//add rotate and copy methods
-
 
 export default Deque;
 
 const deque = new Deque([1, 2, 3, 4, 5, 6, 7, 8, 9])
 
 console.log(deque.toString())
-console.log(deque.removeAt(3))
+deque.rotate(-3)
+console.log(deque.toString())
+deque.rotate(3)
 console.log(deque.toString())
