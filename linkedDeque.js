@@ -10,7 +10,7 @@ function Node(value=null) {
 
 /**
  * A double-ended queue built off of a doubly linked list.
- * @param {iterator} iterable - An object that implements Symbol.iterator
+ * @param {iterator} [iterable] - An object that implements Symbol.iterator
  * @return {Deque}
  */
 function Deque(iterable) {
@@ -163,6 +163,12 @@ Deque.prototype.popleft = function() {
 };
 
 
+/**
+ * 
+ * @param {*} value - The element to be added to the deque. 
+ * @param {integer} index 
+ * @returns 
+ */
 Deque.prototype.insertAt = function(value, index) {
     if (index < 0 || index >= this._length) {
         return false;
@@ -353,4 +359,4 @@ export default Deque;
 
 
 const deque = new Deque([1, 2, 3, 4, 5])
-deque.at(6)
+deque.at()
