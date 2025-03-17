@@ -140,6 +140,10 @@ Deque.prototype.pop = function() {
 };
 
 
+/**
+ * Remove and return the first element in the deque.
+ * @return {*} The element at the front (left side) of the deque. 
+ */
 Deque.prototype.popleft = function() {
     if (this._length === 0) {
         return null;
@@ -349,4 +353,4 @@ export default Deque;
 
 
 const deque = new Deque([1, 2, 3, 4, 5])
-deque.pop()
+deque.popleft()
