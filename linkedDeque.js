@@ -269,6 +269,11 @@ Deque.prototype[Symbol.iterator] = function() {
 };
 
 
+Deque.prototype[Symbol.toStringTag] = function() {
+    return "Deque";
+};
+
+
 Deque.prototype.toArray = function() {
     if (this._length === 0) {
         return [];
@@ -310,20 +315,3 @@ Deque.prototype.toString = function() {
 
 export default Deque;
 
-const deque = new Deque([1, 2, 3, 4, 5, 6, 7, 8, 9])
-
-console.log(deque.toString())
-
-for (let value of deque) {
-    value *= 2;
-}
-
-console.log(deque.toString())
-
-const array = [1, 2, 3]
-
-for (let num of array) {
-    num *= 2
-}
-
-console.log(array)
