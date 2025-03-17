@@ -339,6 +339,10 @@ Deque.prototype.toArray = function() {
 };
 
 
+/**
+ * Get a String of all the elements in the deque for the purpose of printing.
+ * @return {String} A string representation of all the elements in the deque. 
+ */
 Deque.prototype.toString = function() {
     if (this._length === 0 ) {
         return "null";
@@ -387,4 +391,4 @@ export default Deque;
 
 
 const deque = new Deque([1, 2, 3, 4, 5])
-deque.toArray()
+deque.toString()
