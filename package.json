@@ -2,15 +2,15 @@
   "name": "linked-deque",
   "version": "1.0.1",
   "description": "A simple double-ended queue.",
-  "homepage": "https://github.com/SamuelWyck/odin-linked-list#readme",
+  "homepage": "https://github.com/SamuelWyck/linked-deque#readme",
   "bugs": {
-    "url": "https://github.com/SamuelWyck/odin-linked-list/issues"
+    "url": "https://github.com/SamuelWyck/linked-deque/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SamuelWyck/odin-linked-list.git"
+    "url": "git+https://github.com/SamuelWyck/linked-deque.git"
   },
-  "keywords": ["deque", "linked-list", "double-ended"],
+  "keywords": ["deque", "linked-list", "double-ended", "JavaScript", "queue", "java script", "double-ended queue", "javascript", "linked-queue", "linked-deque", "array"],
   "license": "ISC",
   "author": "samawyck@gmail.com",
   "type": "module",
