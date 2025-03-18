@@ -1,6 +1,6 @@
 {
   "name": "linked-deque",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple double-ended queue.",
   "homepage": "https://github.com/SamuelWyck/linked-deque#readme",
   "bugs": {
