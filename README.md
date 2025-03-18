@@ -5,7 +5,8 @@
 A deque (double-ended queue) provides fast pushing and popping from both sides of the data structure.  
 This implementation is a simple deque built off of a doubly linked list.
 
-The Symbol.iterator method is defined to allow for the use of a for ... of loop on the deque.
+The Symbol.iterator method is defined to allow for the use of a for ... of loop on the deque.  
+Additionally, there is a **length** property used to access the current size of the deque in **O(1)** time. 
 
 All methods will have the time complexity listed in their documentation.
 
@@ -39,7 +40,7 @@ The deque will be initialized with all the elements of the iterable. (if one is 
 
 ### *at( index )*
 - Get an element from the deque using an order-based index.  
-Throws a RangeError with an invalid index. **O(n)**
+Throws a RangeError with an invalid index. **O(n/2)**
 
 
 ### *pop( )*
