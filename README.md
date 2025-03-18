@@ -31,11 +31,13 @@ The deque will be initialized with all the elements of the iterable. (if one is 
 
 
 ### *getHead( )*
-- Get the first element in the deque (the front element) without removing it. **O(1)**
+- Get the first element in the deque (the front element) without removing it.  
+Returns null if the deque is empty. **O(1)**
 
 
 ### *getTail( )*
-- Get the last element in the deque (the back element) without removing it. **O(1)**
+- Get the last element in the deque (the back element) without removing it.  
+Returns null if the deque is empty. **O(1)**
 
 
 ### *at( index )*
@@ -96,7 +98,7 @@ nothing will happen. **O(n/2)**
 ## Usage
 
 ```javascript
-import deque from "linked-deque"; 
+import Deque from "linked-deque"; 
 
 const deque = new Deque([1, 2, 3]); // ( 1 ) -> ( 2 ) -> ( 3 ) -> null
 
