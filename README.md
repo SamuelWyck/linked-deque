@@ -104,6 +104,8 @@ deque.popLeft(); // ( 2 ) -> ( 3 ) -> null
 
 deque.pushLeft(5); // ( 5 ) -> ( 2 ) -> ( 3 ) -> null
 
+deque.length // 3
+
 deque.rotate(); // ( 3 ) -> ( 5 ) -> ( 2 ) -> null
 
 deque.insertAt("foo", 1); // ( 3 ) -> ( "foo" ) -> ( 5 ) -> ( 2 ) -> null
@@ -122,4 +124,6 @@ for (let element of deque) {
 
 
 deque.clear(); // null
+
+deque.length // 0
 ```
